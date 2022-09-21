@@ -1,4 +1,4 @@
 module.exports = {
-    plants: require('./plant.ctrls'),
-    users: require('./user.ctrls')
+    plants: require('./plant'),
+    users: require('./user')
 }
