@@ -7,7 +7,16 @@ const plantSchema = new mongoose.Schema({
     waterNeed: {type: String, required: true},
     description: String, 
     classification: Array[
-        '',
-        ''
-    ]
+        'Moss',
+        'Fern',
+        'Gymnosperm',
+        'Moncot',
+        'Dicot',
+        'Other'
+    ],
+    username: String
 })
+
+const Plant = mongoose.model('Plant', plantSchema)
+
+module.exports = Plant;
