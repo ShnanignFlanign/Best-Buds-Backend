@@ -3,11 +3,11 @@ const router = express.Router();
 
 const ctrls = require('../controllers')
 
-router.get('/signout', ctrls.plants.destroy);
+router.get('/signout', ctrls.users.signOut);
 
-router.post('/signup', ctrls.plants.signUp); 
+router.post('/signup', ctrls.users.signUp); 
 
-router.post('/signin', ctrls.plants.signIn);
+router.post('/signin', ctrls.users.signIn);
 
 
 
