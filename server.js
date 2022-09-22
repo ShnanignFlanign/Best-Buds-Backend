@@ -1,5 +1,8 @@
 /* == External Modules == */
 const express = require('express')
+
+require('dotenv').config();
+
 //import cors
 const cors = require('cors')
 
@@ -30,7 +33,7 @@ const PORT = process.env.PORT || 3003;
 require('./config/db.connection')
 
 /* == Middleware == */
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
