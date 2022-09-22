@@ -6,14 +6,7 @@ const plantSchema = new mongoose.Schema({
     lightNeed: {type: String, required: true},
     waterNeed: {type: String, required: true},
     description: String, 
-    classification: Array[
-        'Moss',
-        'Fern',
-        'Gymnosperm',
-        'Moncot',
-        'Dicot',
-        'Other'
-    ],
+    classification: String,
     username: String
 })
 

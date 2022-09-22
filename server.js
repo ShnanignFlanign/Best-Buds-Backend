@@ -37,6 +37,7 @@ app.use(express.urlencoded({extended:true}))
 /* == Routes == */
 // 1 - this is calling the router folder 
 app.use('/plants', routes.plants)
+app.use('/users', routes.users)
 
 app.listen(PORT, () => {
   console.log('🎉🎊', 'celebrations happening on port', PORT, '🎉🎊',)

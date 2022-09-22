@@ -49,7 +49,7 @@ const signOut = (req,res) =>{
 }
 
 module.exports = {
-    signUp,
-    signIn,
+    // signUp,
+    // signIn,
     signOut
 }
