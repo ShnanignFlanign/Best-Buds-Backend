@@ -1,14 +1,12 @@
 const db = require('../models')
 const bcrypt = require('bcrypt')
 
-
-
 const signUp = (req,res) =>{
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
     db.User.findOne({username:req.body.username}, (err,userExists) =>{
         if(userExists){
-            //do something
+            res.redirect('/users/signin')
         }else{
             db.User.create(req.body, (err,createdUser) =>{
                 if(err){
@@ -39,17 +37,13 @@ const signIn = (req,res) =>{
     })
 }
 
-
-
-
-
 const signOut = (req,res) =>{
     req.session.destory()
     res.redirect('/')
 }
 
 module.exports = {
-    // signUp,
-    // signIn,
+    signUp,
+    signIn,
     signOut
 }
