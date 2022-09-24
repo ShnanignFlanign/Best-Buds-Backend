@@ -1,6 +1,7 @@
 const db = require('../models')
 const bcrypt = require('bcrypt')
 
+
 const signUp = (req,res) =>{
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
@@ -19,6 +20,17 @@ const signUp = (req,res) =>{
     })
 }
 
+const getUser = (req,res) =>{
+    db.User.find({}, (err,users) =>{
+        if(err){
+            return res.status(404).json({error: err.message})
+        }else{
+            console.log(users)
+            return res.status(200).json({users})
+        }
+    })
+}
+
 const signIn = (req,res) =>{
     db.User.findOne({email:req.body.email}, (err,foundUser) =>{
         if(err){
@@ -28,7 +40,6 @@ const signIn = (req,res) =>{
             if(foundUser){
                 if(validLogin){
                     return res.status(200).json({foundUser:req.session.currentUser})
-                    res.redirect('/plants')
                 }else{
                     //do something
                 }
@@ -43,6 +54,7 @@ const signOut = (req,res) =>{
 }
 
 module.exports = {
+    getUser,
     signUp,
     signIn,
     signOut
