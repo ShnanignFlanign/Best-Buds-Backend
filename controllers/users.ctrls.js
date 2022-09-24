@@ -1,6 +1,6 @@
 const db = require('../models')
 const bcrypt = require('bcrypt')
-
+const session = require('express-session')
 
 const signUp = (req,res) =>{
     const salt = bcrypt.genSaltSync(10)
@@ -21,12 +21,12 @@ const signUp = (req,res) =>{
 }
 
 const getUser = (req,res) =>{
-    db.User.find({}, (err,users) =>{
+    db.User.findOne({email:req.params.email}, (err,foundUser) =>{
         if(err){
             return res.status(404).json({error: err.message})
         }else{
-            console.log(users)
-            return res.status(200).json({users})
+            console.log(foundUser)
+            return res.status(200).json({foundUser})
         }
     })
 }
