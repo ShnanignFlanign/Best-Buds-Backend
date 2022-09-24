@@ -8,7 +8,7 @@ require('dotenv').config();
 const cors = require('cors')
 
 //whitelist is an array of development url and deployment url
-const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'http://localhost:3003']
 
 const SESSION_SECRET = process.env.SESSION_SECRET
 
@@ -38,7 +38,7 @@ const PORT = process.env.PORT || 3003;
 require('./config/db.connection')
 
 /* == Middleware == */
-// app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
