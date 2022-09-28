@@ -8,7 +8,7 @@ require('dotenv').config();
 const cors = require('cors')
 
 //whitelist is an array of development url and deployment url
-const whitelist = ['https://bestbud-backend.herokuapp.com/', `${process.env.FRONTEND_URL}`]
+const whitelist = ['http://localhost:3003', `${process.env.FRONTEND_URL}`]
 
 const SESSION_SECRET = process.env.SESSION_SECRET
 
