@@ -6,6 +6,9 @@ const signUp = (req,res) =>{
     const salt = bcrypt.genSaltSync(10)
     req.body.password = bcrypt.hashSync(req.body.password, salt)
     db.User.findOne({username:req.body.username}, (err,userExists) =>{
+        if(err){
+            res.status(404).json({error:err.message})
+        }
         if(userExists){
             res.redirect('/users/signin')
         }else{
