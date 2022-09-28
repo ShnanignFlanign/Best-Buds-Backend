@@ -52,7 +52,7 @@ const signIn = (req,res) =>{
 }
 
 const signOut = (req,res) =>{
-    req.session.destory()
+    req.session.destroy()
     res.redirect('/')
 }
 
