@@ -31,6 +31,8 @@ const whitelist = ['http://localhost:3003','https://bestbud-backend.herokuapp.co
 //
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log(origin, 'ORIGIN')
+    console.log(whitelist.indexOf(origin), 'INDEX')
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
