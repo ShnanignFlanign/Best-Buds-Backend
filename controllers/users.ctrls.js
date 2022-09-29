@@ -29,7 +29,7 @@ const getUser = (req,res) =>{
             return res.status(404).json({error: err.message})
         }else{
             console.log(foundUser)
-            return res.status(200).json({foundUser})
+            return res.status(200).json(foundUser)
         }
     })
 }
