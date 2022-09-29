@@ -5,7 +5,7 @@ const ctrls = require('../controllers')
 
 router.get('/signout', ctrls.users.signOut);
 
-router.get('/:username', ctrls.users.getUser)
+router.get('/:email', ctrls.users.getUser)
 
 router.post('/signup', ctrls.users.signUp); 
 
