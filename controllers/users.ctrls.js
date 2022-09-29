@@ -42,7 +42,7 @@ const signIn = (req,res) =>{
             const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
             if(foundUser){
                 if(validLogin){
-                    return res.status(200).json({foundUser:req.session.currentUser})
+                    return res.status(200).json({foundUser})
                 }else{
                     //do something
                 }
