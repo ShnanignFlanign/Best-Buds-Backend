@@ -26,7 +26,7 @@ require('./config/db.connection')
 
 
 //whitelist is an array of development url and deployment url
-const whitelist = ['http://localhost:3003', `${process.env.FRONTEND_URL}`]
+const whitelist = ['http://localhost:3003','https://bestbud-backend.herokuapp.com/', `${process.env.FRONTEND_URL}`]
 
 //
 const corsOptions = {
