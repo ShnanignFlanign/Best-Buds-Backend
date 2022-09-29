@@ -39,12 +39,12 @@ const signIn = (req,res) =>{
         if(err){
             return res.status(404).json({error: err.message})
         }else{
-            const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
             if(foundUser){
+                const validLogin = bcrypt.compareSync(req.body.password, foundUser.password)
                 if(validLogin){
                     return res.status(200).json({foundUser})
                 }else{
-                    //do something
+                    return res.status(404).json({error: 'Log in failed'})
                 }
             }
         }
