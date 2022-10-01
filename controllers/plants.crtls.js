@@ -16,6 +16,7 @@ const index = (req,res) =>{
 const create = (req,res) =>{
     db.Plant.create(req.body, (err, createdPlant) =>{
         if(err){
+            console.log(err)
             return res.status(404).json({error: err.message})
         }else{
             return res.status(200).json({plants:createdPlant}) 
