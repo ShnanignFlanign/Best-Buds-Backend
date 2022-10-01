@@ -6,10 +6,11 @@ const express = require('express');
 
 /* == Internal Modules == */
 const routes = require('./routes');
-//import cors
+
+/* == Import Cors == */
 const cors = require('cors');
 
-//session
+/* == Sessions == */
 const session = require('express-session');
 const SESSION_SECRET = process.env.SESSION_SECRET
 
@@ -22,13 +23,10 @@ const app = express();
 /* == DB connection == */
 require('./config/db.connection')
 
-
-
-
-//whitelist is an array of development url and deployment url
+/* == White List  == */
 const whitelist = ['http://localhost:3003', 'http://localhost:3000','https://bestbud-backend.herokuapp.com/', `${process.env.FRONTEND_URL}`]
 
-//
+/* == Cors Options == */
 const corsOptions = {
   origin: function (origin, callback) {
     console.log(origin, 'ORIGIN')
@@ -56,7 +54,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 /* == Routes == */
-// 1 - this is calling the router folder 
 app.use('/plants', routes.plants);
 app.use('/users', routes.users);
 
